@@ -45,4 +45,93 @@ button, input, textarea, select {
 	
 	border-radius: 0;
 } */
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  background-color: #dec0f1;
+  font-family: "Kanit", sans-serif;
+}
+
+body #root {
+  width: 400px;
+}
+
+body #root form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 600px;
+  padding: 10px 40px;
+  border: 2px solid #7161ef;
+  border-radius: 15px;
+  background-color: #efd9ce;
+  color: #7161ef;
+  -webkit-box-shadow: 5px 5px 10px rgba(114, 97, 239, 0.5);
+          box-shadow: 5px 5px 10px rgba(114, 97, 239, 0.5);
+  font-size: 1.1em;
+}
+
+body #root form h2,
+body #root form h3 {
+  margin: 0;
+  padding: 0;
+}
+
+body #root form label:first-child {
+  display: block;
+}
+
+body #root form input[type="text"],
+body #root form input[type="email"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 40px;
+  width: 318px;
+  border: 1px solid #7161ef;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+body #root form input[type="checkbox"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 20px;
+  width: 20px;
+  border: 1px solid #7161ef;
+  border-radius: 10%;
+}
+
+body #root form select,
+body #root form input[type="file"] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 35px;
+  font-size: 16px;
+}
+
+body #root form button {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 100px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 500;
+}
 /*# sourceMappingURL=style.css.map */
