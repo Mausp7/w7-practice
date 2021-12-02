@@ -48,6 +48,7 @@ button, input, textarea, select {
 
 body {
 	display: flex;
+	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
@@ -57,6 +58,10 @@ body {
 	font-family: "Kanit", sans-serif;
 
 	#root {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+
 		width: 400px;
 
 		form {
@@ -122,7 +127,58 @@ body {
 
 				font-size: 20px;
 				font-weight: 500;
+
+				border: none;
+				border-radius: 10px;
+
+				background-color: #7161ef;
+				color: #fff;
+			}
+
+			button:hover {
+				border: 2px solid #7161ef;
+
+				background-color: #dec0f1;
+				color: #7161ef;
 			}
 		}
 	}
+}
+
+#form div.file {
+	position: relative;
+
+	height: 80px;
+
+	background-color: yellowgreen;
+
+	&::after {
+		content: "Kattints vagy húzd ide a fájlt!";
+		display: block;
+		text-align: center;
+		font-weight: lighter;
+	}
+
+	label {
+		display: block;
+		text-align: center;
+	}
+
+	input[type="file"] {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		z-index: 99;
+		opacity: 0;
+
+		cursor: pointer;
+	}
+}
+
+#inputValue img {
+	width: 200px;
+	height: 200px;
+	object-fit: contain;
 }

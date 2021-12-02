@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* body,
 body *,
 body *::before,
@@ -49,6 +50,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -61,6 +66,15 @@ body {
 }
 
 body #root {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   width: 400px;
 }
 
@@ -133,5 +147,51 @@ body #root form button {
   height: 40px;
   font-size: 20px;
   font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  background-color: #7161ef;
+  color: #fff;
+}
+
+body #root form button:hover {
+  border: 2px solid #7161ef;
+  background-color: #dec0f1;
+  color: #7161ef;
+}
+
+#form div.file {
+  position: relative;
+  height: 80px;
+  background-color: yellowgreen;
+}
+
+#form div.file::after {
+  content: "Kattints vagy húzd ide a fájlt!";
+  display: block;
+  text-align: center;
+  font-weight: lighter;
+}
+
+#form div.file label {
+  display: block;
+  text-align: center;
+}
+
+#form div.file input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 99;
+  opacity: 0;
+  cursor: pointer;
+}
+
+#inputValue img {
+  width: 200px;
+  height: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 /*# sourceMappingURL=style.css.map */
