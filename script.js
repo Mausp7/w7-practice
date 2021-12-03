@@ -140,13 +140,11 @@ const processCountries = async () => {
     const countryNames = [];
 
     for (const country of countryArr) {
-        countryNames.push(country.name.official);
+        countryNames.push(country.name.common);
     };
 
-    return countryNames;
+    return countryNames.sort();
 }
-
-console.log(processCountries);
 
 const anotherSelectFields = async () => {
     return {
