@@ -123,7 +123,44 @@ const formFields = [
 `;
  */
 
-const formElement = (ffs, id) => {
+const selectFields = {
+    type: "select",
+    name: "where", 
+    label: "Hol hallottál rólunk", 
+    options: [
+        "Interneten", 
+        "Ismerőstől", 
+        "Egyéb"
+    ]
+};
+
+const processCountries = async () => {
+    const countryRes = await fetch("https://restcountries.com/v3.1/all");
+    const countryArr = await countryRes.json();
+    const countryNames = [];
+
+    for (const country of countryArr) {
+        countryNames.push(country.name.official);
+    };
+
+    return countryNames;
+}
+
+console.log(processCountries);
+
+const anotherSelectFields = async () => {
+    return {
+        type: "select",
+        name: "countries", 
+        label: "Ország", 
+        //options: ["Spanyolország", "Ausztria"],
+        options: await processCountries(),
+    };
+};
+
+
+
+const formElement = (ffs, id, sel) => {
     let inputs = ``;
 
     for (const ff of ffs) {
@@ -134,7 +171,7 @@ const formElement = (ffs, id) => {
     <form id="${id}">
         <h3>Jelentkezz ünnepi hírlevelünkre!</h3>
         ${inputs}
-        ${selectElement("select", "where", "Hol hallottál rólunk", ["Interneten", "Ismerőstől", "Egyéb"])}
+        ${selectElement(sel.type, sel.name, sel.label, sel.options)}
         <button>Ok</button>
     `;
 };
@@ -172,12 +209,13 @@ const inputUpdate = (event) => {
 }
 
 
-function loadEvent() {
+async function loadEvent() {
     console.log("Loaded");
     
     const rootElement = document.getElementById("root");
-    rootElement.insertAdjacentHTML("beforeend", formElement(formFields, "form"));
-    rootElement.insertAdjacentHTML("beforeend", formElement(anotherFormFields, "form2"));
+    const waitForAnotherSelectFields = await anotherSelectFields();
+    rootElement.insertAdjacentHTML("beforeend", formElement(formFields, "form", selectFields));
+    rootElement.insertAdjacentHTML("beforeend", formElement(anotherFormFields, "form2", waitForAnotherSelectFields));
     
     rootElement.querySelector("h3").insertAdjacentHTML("beforebegin", `
         <h2 id="inputValue">Üdv!</h2>
